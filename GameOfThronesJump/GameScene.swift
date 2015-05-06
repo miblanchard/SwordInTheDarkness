@@ -8,38 +8,115 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
+class GameScene: SKScene, SKPhysicsContactDelegate {
+
+    var backgroundNode: SKNode!
+    var midgroundNode: SKNode!
+    var foregroundNode: SKNode!
+    var hudNode: SKNode!
+    var scaleFactor : CGFloat!
+    var player: SKNode!
+    let tapToStartNode = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/TapToStart")
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
-    
+
+    override init(size: CGSize) {
+        super.init(size: size)
+        backgroundColor = SKColor.whiteColor()
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -2.0)
+        physicsWorld.contactDelegate = self
+
+        scaleFactor = self.size.width / 320.0
+        backgroundNode = createBackgroundNode()
+        addChild(backgroundNode)
+        foregroundNode = SKNode()
+        addChild(foregroundNode)
+        hudNode = SKNode()
+        addChild(hudNode)
+        let star = createStarAtPosition(CGPoint(x: 160, y: 220), ofType: .Special)
+        foregroundNode.addChild(star)
+        player = createPlayer()
+        foregroundNode.addChild(player)
+        tapToStartNode.position = CGPoint(x: self.size.width / 2, y: 180)
+        hudNode.addChild(tapToStartNode)
+
+    }
+
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+        if player.physicsBody!.dynamic {
+            return
+        }
+        tapToStartNode.removeFromParent()
+        player.physicsBody?.dynamic = true
+        player.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: 20.0))
+    }
+
+    func didBeginContact(contact: SKPhysicsContact) {
+        var updateHUD = false
+        let whichNode = (contact.bodyA.node != player) ? contact.bodyA.node : contact.bodyB.node
+        let other = whichNode as! GameObjectNode
+        updateHUD = other.collisionWithPlayer(player)
+        if updateHUD {
+
         }
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+
+    func createBackgroundNode() -> SKNode {
+        let backgroundNode = SKNode()
+        let ySpacing = 64.0 * scaleFactor
+
+        for index in 0...19 {
+            let node = SKSpriteNode(imageNamed:String(format: "GameOfThronesJumpGraphics/Backgrounds/Background%02d", index + 1))
+            node.setScale(scaleFactor)
+            node.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+            node.position = CGPoint(x: self.size.width / 2, y: ySpacing * CGFloat(index))
+            backgroundNode.addChild(node)
+        }
+        return backgroundNode
     }
+
+    func createPlayer() -> SKNode {
+        let playerNode = SKNode()
+        playerNode.position = CGPoint(x: self.size.width / 2, y: 80.0)
+
+        let playerSprite = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/Player")
+        playerNode.addChild(playerSprite)
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: playerSprite.size.width / 2)
+        playerNode.physicsBody?.dynamic = false
+        playerNode.physicsBody?.allowsRotation = false
+        playerNode.physicsBody?.restitution = 1.0
+        playerNode.physicsBody?.friction = 0.0
+        playerNode.physicsBody?.angularDamping = 0.0
+        playerNode.physicsBody?.linearDamping = 0.0
+        playerNode.physicsBody?.usesPreciseCollisionDetection = true
+        playerNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+        playerNode.physicsBody?.collisionBitMask = 0
+        playerNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Star | CollisionCategoryBitmask.Platform
+
+        return playerNode
+    }
+
+    func createStarAtPosition(position: CGPoint, ofType type: StarType) -> StarNode {
+        let node = StarNode()
+        let thePosition = CGPoint(x: position.x * scaleFactor, y: position.y)
+        node.position = thePosition
+        node.name = "NODE_STAR"
+
+        var starSprite: SKSpriteNode
+        if type == .Special {
+            starSprite = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/StarSpecial")
+        } else {
+            starSprite = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/Star")
+        }
+        node.addChild(starSprite)
+        node.physicsBody = SKPhysicsBody(circleOfRadius: starSprite.size.width / 2)
+        node.physicsBody?.dynamic = false
+        node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Star
+        node.physicsBody?.collisionBitMask = 0
+        
+        return node
+    }
+    
 }
