@@ -12,6 +12,7 @@ struct CollisionCategoryBitmask {
     static let Player: UInt32 = 0x00
     static let Star: UInt32 = 0x01
     static let Platform: UInt32 = 0x02
+    static let Enemy: UInt32 = 0x03
 }
 
 enum StarType: Int {
@@ -62,7 +63,7 @@ class PlatformNode: GameObjectNode {
 
     override func collisionWithPlayer(player: SKNode) -> Bool {
         if player.physicsBody?.velocity.dy < 0 {
-            player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 250.0)
+            player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 350.0)
 
             if platformType == .Break {
                 self.removeFromParent()

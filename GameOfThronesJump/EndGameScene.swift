@@ -11,43 +11,43 @@ import SpriteKit
 class EndGameScene: SKScene {
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
     override init(size: CGSize) {
         super.init(size: size)
 
-        backgroundColor = SKColor.redColor()
+        backgroundColor = SKColor.blackColor()
 
         let star = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/Star")
         star.position = CGPoint(x: 25, y: self.size.height-30)
         addChild(star)
 
-        let lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        let lblStars = SKLabelNode(fontNamed: "Luminari")
         lblStars.fontSize = 30
-        lblStars.fontColor = SKColor.whiteColor()
+        lblStars.fontColor = SKColor.redColor()
         lblStars.position = CGPoint(x: 50, y: self.size.height-40)
         lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
         addChild(lblStars)
 
-        let lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        let lblScore = SKLabelNode(fontNamed: "Luminari")
         lblScore.fontSize = 60
-        lblScore.fontColor = SKColor.whiteColor()
+        lblScore.fontColor = SKColor.blueColor()
         lblScore.position = CGPoint(x: self.size.width / 2, y: 300)
         lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblScore.text = String(format: "%d", GameState.sharedInstance.score)
         addChild(lblScore)
 
-        let lblHighScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        let lblHighScore = SKLabelNode(fontNamed: "Luminari")
         lblHighScore.fontSize = 30
-        lblHighScore.fontColor = SKColor.cyanColor()
+        lblHighScore.fontColor = SKColor.magentaColor()
         lblHighScore.position = CGPoint(x: self.size.width / 2, y: 150)
         lblHighScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblHighScore.text = String(format: "High Score: %d", GameState.sharedInstance.highScore)
         addChild(lblHighScore)
 
-        let lblTryAgain = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        let lblTryAgain = SKLabelNode(fontNamed: "Luminari")
         lblTryAgain.fontSize = 30
         lblTryAgain.fontColor = SKColor.whiteColor()
         lblTryAgain.position = CGPoint(x: self.size.width / 2, y: 50)

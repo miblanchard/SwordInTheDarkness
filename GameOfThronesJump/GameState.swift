@@ -12,6 +12,7 @@ class GameState {
     var score: Int
     var highScore: Int
     var stars: Int
+    var currentLevel: Int
 
     class var sharedInstance: GameState {
         struct Singleton {
@@ -30,6 +31,7 @@ class GameState {
 
         highScore = defaults.integerForKey("highScore")
         stars = defaults.integerForKey("stars")
+        currentLevel = 1
     }
 
 
@@ -39,6 +41,7 @@ class GameState {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(highScore, forKey: "highScore")
         defaults.setInteger(stars, forKey: "stars")
+        defaults.setInteger(currentLevel, forKey: "currentLevel")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
 

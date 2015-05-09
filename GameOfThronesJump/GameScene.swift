@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var midgroundNode: SKNode!
     var foregroundNode: SKNode!
     var hudNode: SKNode!
-    var scaleFactor : CGFloat!
+    var scaleFactor: CGFloat!
     var player: SKNode!
     let tapToStartNode = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/TapToStart")
     var lblScore: SKLabelNode!
@@ -25,10 +25,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xAcceleration: CGFloat = 0.0
     var maxPlayerY: Int!
     var gameOver = false
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    var currentLevel: Int = 1
+//
+//    convenience init(size: CGSize, currentLevel: Int) {
+//        self.init(size: size)
+//        self.currentLevel = currentLevel
+//    }
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -52,53 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hudNode = SKNode()
         addChild(hudNode)
 
-
-
-        let levelPlist = NSBundle.self.mainBundle().pathForResource("Level01", ofType: "plist")
-        let levelData = NSDictionary(contentsOfFile: levelPlist!)!
-        endLevelY = levelData["EndY"]!.integerValue
-
-        let platforms = levelData["Platforms"] as! NSDictionary
-        let platformPatterns = platforms["Patterns"] as! NSDictionary
-        let platformPositions = platforms["Positions"] as! [NSDictionary]
-
-        for platformPosition in platformPositions {
-            let patternX = platformPosition["x"]?.floatValue
-            let patternY = platformPosition["y"]?.floatValue
-            let pattern = platformPosition["pattern"] as! NSString
-
-            let platformPattern = platformPatterns[pattern] as! [NSDictionary]
-            for platformPoint in platformPattern {
-                let x = platformPoint["x"]?.floatValue
-                let y = platformPoint["y"]?.floatValue
-                let type = PlatformType(rawValue: platformPoint["type"]!.integerValue)
-                let positionX = CGFloat(x! + patternX!)
-                let positionY = CGFloat(y! + patternY!)
-                let platformNode = createPlatformAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
-                foregroundNode.addChild(platformNode)
-            }
-        }
-
-        let stars = levelData["Stars"] as! NSDictionary
-        let starPatterns = stars["Patterns"] as! NSDictionary
-        let starPositions = stars["Positions"] as! [NSDictionary]
-
-        for starPosition in starPositions {
-            let patternX = starPosition["x"]?.floatValue
-            let patternY = starPosition["y"]?.floatValue
-            let pattern = starPosition["pattern"] as! NSString
-
-            let starPattern = starPatterns[pattern] as! [NSDictionary]
-            for starPoint in starPattern {
-                let x = starPoint["x"]?.floatValue
-                let y = starPoint["y"]?.floatValue
-                let type = StarType(rawValue: starPoint["type"]!.integerValue)
-                let positionX = CGFloat(x! + patternX!)
-                let positionY = CGFloat(y! + patternY!)
-                let starNode = createStarAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
-                foregroundNode.addChild(starNode)
-            }
-        }
+        let currentLevel = GameState.sharedInstance.currentLevel
+        setupLevel(currentLevel)
 
         player = createPlayer()
         foregroundNode.addChild(player)
@@ -109,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         star.position = CGPoint(x: 25, y: self.size.height-30)
         hudNode.addChild(star)
 
-        lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblStars = SKLabelNode(fontNamed: "Luminari")
         lblStars.fontSize = 30
         lblStars.fontColor = SKColor.whiteColor()
         lblStars.position = CGPoint(x: 50, y: self.size.height-40)
@@ -118,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
         hudNode.addChild(lblStars)
 
-        lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblScore = SKLabelNode(fontNamed: "Luminari")
         lblScore.fontSize = 30
         lblScore.fontColor = SKColor.whiteColor()
         lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
@@ -135,7 +92,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
 
     }
-//Update elements to show different layers moving at different paces
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    //Update elements to show different layers moving at different paces
     override func update(currentTime: NSTimeInterval) {
 
         if gameOver{
@@ -165,13 +127,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             midgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/4))
             foregroundNode.position = CGPoint(x: 0.0, y: -(player.position.y - 200.0))
         }
-
+        // Beats the level
         if Int(player.position.y) > endLevelY {
-            endGame()
+            win()
         }
-
+        // loses level
         if Int(player.position.y) < maxPlayerY - 800 {
-            endGame()
+            lose()
         }
     }
 
@@ -203,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lblScore.text = String(format: "%d", GameState.sharedInstance.score)
         }
     }
-//Create a layer of objects between background image and player/game elements
+    //Create a layer of objects between background image and player/game elements
     func createMidgroundNode() -> SKNode {
         let theMidgroundNode = SKNode()
         var anchor: CGPoint!
@@ -230,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         return theMidgroundNode
     }
-//create the background image layer that changes as you move up
+    //create the background image layer that changes as you move up
     func createBackgroundNode() -> SKNode {
         let backgroundNode = SKNode()
         let ySpacing = 64.0 * scaleFactor
@@ -283,7 +245,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.physicsBody?.dynamic = false
         node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Star
         node.physicsBody?.collisionBitMask = 0
-        
+
         return node
     }
 
@@ -309,7 +271,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return node
     }
 
-    func endGame() {
+    func lose() {
 
         gameOver = true
 
@@ -319,5 +281,79 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let endGameScene = EndGameScene(size: self.size)
         self.view!.presentScene(endGameScene, transition: reveal)
     }
+
+    func win() {
+
+        gameOver = true
+
+        GameState.sharedInstance.saveState()
+        GameState.sharedInstance.currentLevel += 1
+
+        let reveal = SKTransition.fadeWithDuration(0.5)
+        let endGameScene = EndGameScene(size: self.size)
+        self.view!.presentScene(endGameScene, transition: reveal)
+    }
     
+//    func endGame() {
+//        
+//        gameOver = true
+//        
+//        GameState.sharedInstance.saveState()
+//        
+//        let reveal = SKTransition.fadeWithDuration(0.5)
+//        // TODO: figure out when to set the youWin flag to true
+//        //        if (youWin) { GameState.sharedInstance.currentLevel += 1 }
+//
+//        let endGameScene = EndGameScene(size: self.size)
+//        self.view!.presentScene(endGameScene, transition: reveal)
+//    }
+
+    func setupLevel(level: Int) {
+
+        let levelData = LevelConfig.fetchLevel(level)
+        let endLevelY = levelData["EndY"]!.integerValue
+
+        let platforms = levelData["Platforms"] as! NSDictionary
+        let platformPatterns = platforms["Patterns"] as! NSDictionary
+        let platformPositions = platforms["Positions"] as! [NSDictionary]
+
+        for platformPosition in platformPositions {
+            let patternX = platformPosition["x"]?.floatValue
+            let patternY = platformPosition["y"]?.floatValue
+            let pattern = platformPosition["pattern"] as! NSString
+
+            let platformPattern = platformPatterns[pattern] as! [NSDictionary]
+            for platformPoint in platformPattern {
+                let x = platformPoint["x"]?.floatValue
+                let y = platformPoint["y"]?.floatValue
+                let type = PlatformType(rawValue: platformPoint["type"]!.integerValue)
+                let positionX = CGFloat(x! + patternX!)
+                let positionY = CGFloat(y! + patternY!)
+                let platformNode = createPlatformAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
+                foregroundNode.addChild(platformNode)
+            }
+        }
+
+        let stars = levelData["Stars"] as! NSDictionary
+        let starPatterns = stars["Patterns"] as! NSDictionary
+        let starPositions = stars["Positions"] as! [NSDictionary]
+
+        for starPosition in starPositions {
+            let patternX = starPosition["x"]?.floatValue
+            let patternY = starPosition["y"]?.floatValue
+            let pattern = starPosition["pattern"] as! NSString
+
+            let starPattern = starPatterns[pattern] as! [NSDictionary]
+            for starPoint in starPattern {
+                let x = starPoint["x"]?.floatValue
+                let y = starPoint["y"]?.floatValue
+                let type = StarType(rawValue: starPoint["type"]!.integerValue)
+                let positionX = CGFloat(x! + patternX!)
+                let positionY = CGFloat(y! + patternY!)
+                let starNode = createStarAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
+                foregroundNode.addChild(starNode)
+            }
+        }
+
+    }
 }
