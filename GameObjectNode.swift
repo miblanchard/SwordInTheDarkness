@@ -8,6 +8,12 @@
 
 import SpriteKit
 
+struct CollisionCategoryBitmask {
+    static let Player: UInt32 = 0x00
+    static let Star: UInt32 = 0x01
+    static let Platform: UInt32 = 0x02
+}
+
 enum StarType: Int {
     case Normal = 0
     case Special
@@ -18,13 +24,8 @@ enum PlatformType: Int {
     case Break
 }
 
-struct CollisionCategoryBitmask {
-    static let Player: UInt32 = 0x00
-    static let Star: UInt32 = 0x01
-    static let Platform: UInt32 = 0x02
-}
-
 class GameObjectNode: SKNode {
+
     func collisionWithPlayer(player: SKNode) -> Bool {
         return false
     }
@@ -37,14 +38,20 @@ class GameObjectNode: SKNode {
 }
 
 class StarNode: GameObjectNode {
+    var starType: StarType?
     let starSound = SKAction.playSoundFileNamed("StarPing.wav", waitForCompletion: false)
-    var starType: StarType!
 
     override func collisionWithPlayer(player: SKNode) -> Bool {
+
         player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 400.0)
+
         runAction(starSound, completion: {
             self.removeFromParent()
         })
+
+        GameState.sharedInstance.score += (starType == .Normal ? 20 : 100)
+
+        GameState.sharedInstance.stars += (starType == .Normal ? 1 : 5)
 
         return true
     }
@@ -61,7 +68,7 @@ class PlatformNode: GameObjectNode {
                 self.removeFromParent()
             }
         }
-
+        
         return false
     }
 }
