@@ -15,6 +15,7 @@ class LevelConfig {
         let levelPlist = NSBundle.self.mainBundle().pathForResource("Level\(currentLevel)", ofType: "plist")
         let levelData = NSDictionary(contentsOfFile: levelPlist!)!
         return levelData
+        
     }
 }
 

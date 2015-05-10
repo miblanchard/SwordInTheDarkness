@@ -25,12 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xAcceleration: CGFloat = 0.0
     var maxPlayerY: Int!
     var gameOver = false
-//    var currentLevel: Int = 1
-//
-//    convenience init(size: CGSize, currentLevel: Int) {
-//        self.init(size: size)
-//        self.currentLevel = currentLevel
-//    }
+
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -55,7 +50,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(hudNode)
 
         let currentLevel = GameState.sharedInstance.currentLevel
+
+        if currentLevel > 2 {
+            let reveal = SKTransition.fadeWithDuration(0.5)
+            let finishedScene = FinishedScene(size: self.size)
+            self.view!.presentScene(finishedScene, transition: reveal)
+        } else {
         setupLevel(currentLevel)
+        }
 
         player = createPlayer()
         foregroundNode.addChild(player)
@@ -66,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         star.position = CGPoint(x: 25, y: self.size.height-30)
         hudNode.addChild(star)
 
-        lblStars = SKLabelNode(fontNamed: "Luminari")
+        lblStars = SKLabelNode(fontNamed: "Copperplate")
         lblStars.fontSize = 30
         lblStars.fontColor = SKColor.whiteColor()
         lblStars.position = CGPoint(x: 50, y: self.size.height-40)
@@ -75,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
         hudNode.addChild(lblStars)
 
-        lblScore = SKLabelNode(fontNamed: "Luminari")
+        lblScore = SKLabelNode(fontNamed: "Copperplate")
         lblScore.fontSize = 30
         lblScore.fontColor = SKColor.whiteColor()
         lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
@@ -293,25 +295,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let endGameScene = EndGameScene(size: self.size)
         self.view!.presentScene(endGameScene, transition: reveal)
     }
-    
-//    func endGame() {
-//        
-//        gameOver = true
-//        
-//        GameState.sharedInstance.saveState()
-//        
-//        let reveal = SKTransition.fadeWithDuration(0.5)
-//        // TODO: figure out when to set the youWin flag to true
-//        //        if (youWin) { GameState.sharedInstance.currentLevel += 1 }
-//
-//        let endGameScene = EndGameScene(size: self.size)
-//        self.view!.presentScene(endGameScene, transition: reveal)
-//    }
+
+    func endGame() {
+        
+        gameOver = true
+        
+        GameState.sharedInstance.saveState()
+        
+        let reveal = SKTransition.fadeWithDuration(0.5)
+        // TODO: figure out when to set the youWin flag to true
+        //        if (youWin) { GameState.sharedInstance.currentLevel += 1 }
+
+        let endGameScene = EndGameScene(size: self.size)
+        self.view!.presentScene(endGameScene, transition: reveal)
+    }
 
     func setupLevel(level: Int) {
 
         let levelData = LevelConfig.fetchLevel(level)
-        let endLevelY = levelData["EndY"]!.integerValue
+        endLevelY = levelData["EndY"]!.integerValue
 
         let platforms = levelData["Platforms"] as! NSDictionary
         let platformPatterns = platforms["Patterns"] as! NSDictionary

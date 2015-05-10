@@ -1,5 +1,5 @@
 //
-//  EndGameScene.swift
+//  FinishedScene.swift
 //  GameOfThronesJump
 //
 //  Created by Michael Blanchard on 5/9/15.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class EndGameScene: SKScene {
+class FinishedScene: SKScene {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -17,27 +17,15 @@ class EndGameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
 
-        backgroundColor = SKColor.blackColor()
+        backgroundColor = SKColor.redColor()
 
-        let star = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/Star")
-        star.position = CGPoint(x: 25, y: self.size.height-30)
-        addChild(star)
-
-        let lblStars = SKLabelNode(fontNamed: "Copperplate")
-        lblStars.fontSize = 30
-        lblStars.fontColor = SKColor.redColor()
-        lblStars.position = CGPoint(x: 50, y: self.size.height-40)
-        lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-        lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
-        addChild(lblStars)
-
-        let lblScore = SKLabelNode(fontNamed: "Copperplate")
-        lblScore.fontSize = 60
-        lblScore.fontColor = SKColor.blueColor()
-        lblScore.position = CGPoint(x: self.size.width / 2, y: 300)
-        lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        lblScore.text = String(format: "%d", GameState.sharedInstance.score)
-        addChild(lblScore)
+        let lblLevel = SKLabelNode(fontNamed: "Copperplate")
+        lblLevel.fontSize = 60
+        lblLevel.fontColor = SKColor.whiteColor()
+        lblLevel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        lblLevel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblLevel.text = String(format: "You beat level %d, You have beaten all of the levels!", GameState.sharedInstance.currentLevel)
+        addChild(lblLevel)
 
         let lblHighScore = SKLabelNode(fontNamed: "Copperplate")
         lblHighScore.fontSize = 30
@@ -53,7 +41,7 @@ class EndGameScene: SKScene {
         lblTryAgain.position = CGPoint(x: self.size.width / 2, y: 50)
         lblTryAgain.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblTryAgain.text = "Tap To Try Again"
-        addChild(lblTryAgain)        
+        addChild(lblTryAgain)
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
