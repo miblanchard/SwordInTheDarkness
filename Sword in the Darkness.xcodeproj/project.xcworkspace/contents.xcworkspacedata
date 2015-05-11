@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GameOfThronesJump.xcodeproj">
+      location = "self:Sword in the Darkness.xcodeproj">
    </FileRef>
 </Workspace>
