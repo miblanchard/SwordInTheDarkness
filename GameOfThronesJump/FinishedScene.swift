@@ -24,7 +24,7 @@ class FinishedScene: SKScene {
         lblLevel.fontColor = SKColor.whiteColor()
         lblLevel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         lblLevel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        lblLevel.text = String(format: "You beat level %d, You have beaten all of the levels!", GameState.sharedInstance.currentLevel)
+        lblLevel.text = String("You have beaten all of the levels!")
         addChild(lblLevel)
 
         let lblHighScore = SKLabelNode(fontNamed: "Copperplate")

@@ -284,14 +284,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = true
 
         GameState.sharedInstance.saveState()
-        GameState.sharedInstance.currentLevel += 1
 
-        if GameState.sharedInstance.currentLevel > 2 {
+
+        if GameState.sharedInstance.currentLevel >= 3 {
             let reveal = SKTransition.fadeWithDuration(0.5)
             let finishedScene = FinishedScene(size: self.size)
             self.view!.presentScene(finishedScene, transition: reveal)
         } else {
-            
+
+        GameState.sharedInstance.currentLevel += 1
         let reveal = SKTransition.fadeWithDuration(0.5)
         let endGameScene = EndGameScene(size: self.size)
         self.view!.presentScene(endGameScene, transition: reveal)

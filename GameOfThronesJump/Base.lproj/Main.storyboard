@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2tv-n4-qFc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,8 +20,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="DyT-xC-WUa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-8K-O9i">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-8K-O9i">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="68"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,13 +31,25 @@
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="bzN-YO-kng"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwa-ru-ake">
+                                <rect key="frame" x="212" y="556" width="177" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Scoreboard">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DyT-xC-WUa" secondAttribute="trailing" id="X6O-v0-SSa"/>
-                            <constraint firstItem="DyT-xC-WUa" firstAttribute="top" secondItem="DSL-tL-jwY" secondAttribute="top" id="scp-nb-RHe"/>
-                            <constraint firstItem="DyT-xC-WUa" firstAttribute="leading" secondItem="DSL-tL-jwY" secondAttribute="leading" id="yRG-xE-zSu"/>
-                            <constraint firstItem="31Z-Il-v46" firstAttribute="top" secondItem="DyT-xC-WUa" secondAttribute="bottom" id="yYl-BW-LnB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EEf-8K-O9i" secondAttribute="trailing" constant="-16" id="CGA-GW-NVP"/>
+                            <constraint firstItem="DyT-xC-WUa" firstAttribute="top" secondItem="DSL-tL-jwY" secondAttribute="top" id="Ko5-mf-fRZ"/>
+                            <constraint firstItem="31Z-Il-v46" firstAttribute="top" secondItem="DyT-xC-WUa" secondAttribute="bottom" id="MKw-VU-uu1"/>
+                            <constraint firstItem="EEf-8K-O9i" firstAttribute="leading" secondItem="DSL-tL-jwY" secondAttribute="leadingMargin" constant="-16" id="QEl-Ye-g6c"/>
+                            <constraint firstItem="DyT-xC-WUa" firstAttribute="leading" secondItem="DSL-tL-jwY" secondAttribute="leading" id="Ulf-eb-s1L"/>
+                            <constraint firstItem="31Z-Il-v46" firstAttribute="top" secondItem="EEf-8K-O9i" secondAttribute="bottom" constant="444" id="in8-3c-lqY"/>
+                            <constraint firstAttribute="trailing" secondItem="DyT-xC-WUa" secondAttribute="trailing" id="lR9-J5-FVz"/>
+                            <constraint firstItem="EEf-8K-O9i" firstAttribute="top" secondItem="DSL-tL-jwY" secondAttribute="topMargin" id="uPq-jJ-gbd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,10 +70,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="MfX-1M-uPv" kind="presentation" identifier="finished" id="JyT-Eb-6Ix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="304" y="387"/>
+        </scene>
+        <!--Finished Game View Controller-->
+        <scene sceneID="iFf-Se-GL4">
+            <objects>
+                <viewController id="MfX-1M-uPv" customClass="FinishedGameViewController" customModule="GameOfThronesJump" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ehe-ht-Bi2"/>
+                        <viewControllerLayoutGuide type="bottom" id="w4G-YK-zYN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8C-KO-dbD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sy8-m7-Qda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="387"/>
         </scene>
     </scenes>
     <resources>

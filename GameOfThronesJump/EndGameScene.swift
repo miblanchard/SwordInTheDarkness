@@ -52,7 +52,7 @@ class EndGameScene: SKScene {
         lblTryAgain.fontColor = SKColor.whiteColor()
         lblTryAgain.position = CGPoint(x: self.size.width / 2, y: 50)
         lblTryAgain.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        lblTryAgain.text = "Tap To Try Again"
+        lblTryAgain.text = "Go to Next Level!"
         addChild(lblTryAgain)        
     }
 
