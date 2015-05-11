@@ -8,6 +8,7 @@
 
 import SpriteKit
 import CoreMotion
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
@@ -51,13 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let currentLevel = GameState.sharedInstance.currentLevel
 
-        if currentLevel > 2 {
-            let reveal = SKTransition.fadeWithDuration(0.5)
-            let finishedScene = FinishedScene(size: self.size)
-            self.view!.presentScene(finishedScene, transition: reveal)
-        } else {
         setupLevel(currentLevel)
-        }
 
         player = createPlayer()
         foregroundNode.addChild(player)
@@ -291,23 +286,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         GameState.sharedInstance.saveState()
         GameState.sharedInstance.currentLevel += 1
 
+        if GameState.sharedInstance.currentLevel > 2 {
+            let reveal = SKTransition.fadeWithDuration(0.5)
+            let finishedScene = FinishedScene(size: self.size)
+            self.view!.presentScene(finishedScene, transition: reveal)
+        } else {
+            
         let reveal = SKTransition.fadeWithDuration(0.5)
         let endGameScene = EndGameScene(size: self.size)
         self.view!.presentScene(endGameScene, transition: reveal)
-    }
 
-    func endGame() {
-        
-        gameOver = true
-        
-        GameState.sharedInstance.saveState()
-        
-        let reveal = SKTransition.fadeWithDuration(0.5)
-        // TODO: figure out when to set the youWin flag to true
-        //        if (youWin) { GameState.sharedInstance.currentLevel += 1 }
-
-        let endGameScene = EndGameScene(size: self.size)
-        self.view!.presentScene(endGameScene, transition: reveal)
+        }
     }
 
     func setupLevel(level: Int) {
