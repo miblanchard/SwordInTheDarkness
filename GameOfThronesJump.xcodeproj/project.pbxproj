@@ -16,15 +16,17 @@
 		002A68BF1AFE8AFF00BD25FF /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002A68BE1AFE8AFF00BD25FF /* Level2.plist */; };
 		002A68C31AFE94EC00BD25FF /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A68C21AFE94EC00BD25FF /* LevelConfig.swift */; };
 		002A68C71AFEBF3000BD25FF /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 002A68C61AFEBF3000BD25FF /* song.mp3 */; };
-		002A68C91AFEC99E00BD25FF /* FinishedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A68C81AFEC99E00BD25FF /* FinishedScene.swift */; };
+		002A68C91AFEC99E00BD25FF /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A68C81AFEC99E00BD25FF /* LoseScene.swift */; };
 		002A68CD1B01576A00BD25FF /* main.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 002A68CC1B01576A00BD25FF /* main.jpg */; };
+		003AEE071B03E5D40070280D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003AEE061B03E5D40070280D /* Main.storyboard */; };
+		003AEE091B03F7A70070280D /* FinishedGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AEE081B03F7A70070280D /* FinishedGameScene.swift */; };
 		005FD7F31B015F5B00FA8C54 /* Level3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F21B015F5B00FA8C54 /* Level3.plist */; };
-		005FD7F51B0161EC00FA8C54 /* FinishedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005FD7F41B0161EB00FA8C54 /* FinishedGameViewController.swift */; };
 		005FD7F71B01641500FA8C54 /* castamere.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F61B01641500FA8C54 /* castamere.mp3 */; };
+		005FD7FA1B02D5E500FA8C54 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F81B02D5E500FA8C54 /* Snow.sks */; };
+		005FD7FB1B02D5E500FA8C54 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F91B02D5E500FA8C54 /* spark.png */; };
 		009CBD671AF5906300D1E750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD661AF5906300D1E750 /* AppDelegate.swift */; };
 		009CBD6B1AF5906300D1E750 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD6A1AF5906300D1E750 /* GameScene.swift */; };
 		009CBD6D1AF5906300D1E750 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD6C1AF5906300D1E750 /* GameViewController.swift */; };
-		009CBD701AF5906300D1E750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD6E1AF5906300D1E750 /* Main.storyboard */; };
 		009CBD721AF5906300D1E750 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD711AF5906300D1E750 /* Images.xcassets */; };
 		009CBD751AF5906300D1E750 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD731AF5906300D1E750 /* LaunchScreen.xib */; };
 		009CBD811AF5906300D1E750 /* GameOfThronesJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */; };
@@ -50,17 +52,19 @@
 		002A68BE1AFE8AFF00BD25FF /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
 		002A68C21AFE94EC00BD25FF /* LevelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
 		002A68C61AFEBF3000BD25FF /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song.mp3; sourceTree = "<group>"; };
-		002A68C81AFEC99E00BD25FF /* FinishedScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedScene.swift; sourceTree = "<group>"; };
+		002A68C81AFEC99E00BD25FF /* LoseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		002A68CC1B01576A00BD25FF /* main.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main.jpg; sourceTree = "<group>"; };
+		003AEE061B03E5D40070280D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		003AEE081B03F7A70070280D /* FinishedGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedGameScene.swift; sourceTree = "<group>"; };
 		005FD7F21B015F5B00FA8C54 /* Level3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level3.plist; sourceTree = "<group>"; };
-		005FD7F41B0161EB00FA8C54 /* FinishedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedGameViewController.swift; sourceTree = "<group>"; };
 		005FD7F61B01641500FA8C54 /* castamere.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = castamere.mp3; sourceTree = "<group>"; };
+		005FD7F81B02D5E500FA8C54 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		005FD7F91B02D5E500FA8C54 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		009CBD611AF5906300D1E750 /* GameOfThronesJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfThronesJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CBD651AF5906300D1E750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009CBD661AF5906300D1E750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		009CBD6A1AF5906300D1E750 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		009CBD6C1AF5906300D1E750 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		009CBD6F1AF5906300D1E750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		009CBD711AF5906300D1E750 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		009CBD741AF5906300D1E750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfThronesJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,18 +113,19 @@
 			children = (
 				009CBD661AF5906300D1E750 /* AppDelegate.swift */,
 				002A68BA1AFE553500BD25FF /* EndGameScene.swift */,
-				002A68C81AFEC99E00BD25FF /* FinishedScene.swift */,
+				003AEE081B03F7A70070280D /* FinishedGameScene.swift */,
+				002A68C81AFEC99E00BD25FF /* LoseScene.swift */,
 				002A68B21AF9979700BD25FF /* GameObjectNode.swift */,
 				009CBD6A1AF5906300D1E750 /* GameScene.swift */,
 				002A68B81AFC277B00BD25FF /* GameState.swift */,
 				009CBD6C1AF5906300D1E750 /* GameViewController.swift */,
+				003AEE061B03E5D40070280D /* Main.storyboard */,
 				002A68C21AFE94EC00BD25FF /* LevelConfig.swift */,
-				009CBD6E1AF5906300D1E750 /* Main.storyboard */,
 				009CBD711AF5906300D1E750 /* Images.xcassets */,
-				002A68CC1B01576A00BD25FF /* main.jpg */,
 				009CBD731AF5906300D1E750 /* LaunchScreen.xib */,
 				009CBD641AF5906300D1E750 /* Supporting Files */,
-				005FD7F41B0161EB00FA8C54 /* FinishedGameViewController.swift */,
+				005FD7F81B02D5E500FA8C54 /* Snow.sks */,
+				005FD7F91B02D5E500FA8C54 /* spark.png */,
 			);
 			path = GameOfThronesJump;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				002A68B41AFAC8D200BD25FF /* StarPing.wav */,
 				002A68C61AFEBF3000BD25FF /* song.mp3 */,
 				005FD7F61B01641500FA8C54 /* castamere.mp3 */,
+				002A68CC1B01576A00BD25FF /* main.jpg */,
 				002A68B01AF9898500BD25FF /* GameOfThronesJumpGraphics */,
 				009CBD651AF5906300D1E750 /* Info.plist */,
 				005FD7F21B015F5B00FA8C54 /* Level3.plist */,
@@ -248,10 +254,12 @@
 				002A68B11AF9898500BD25FF /* GameOfThronesJumpGraphics in Resources */,
 				002A68B71AFC147700BD25FF /* Level1.plist in Resources */,
 				009CBD751AF5906300D1E750 /* LaunchScreen.xib in Resources */,
+				005FD7FB1B02D5E500FA8C54 /* spark.png in Resources */,
 				002A68CD1B01576A00BD25FF /* main.jpg in Resources */,
+				003AEE071B03E5D40070280D /* Main.storyboard in Resources */,
+				005FD7FA1B02D5E500FA8C54 /* Snow.sks in Resources */,
 				009CBD721AF5906300D1E750 /* Images.xcassets in Resources */,
 				002A68C71AFEBF3000BD25FF /* song.mp3 in Resources */,
-				009CBD701AF5906300D1E750 /* Main.storyboard in Resources */,
 				005FD7F71B01641500FA8C54 /* castamere.mp3 in Resources */,
 				002A68BF1AFE8AFF00BD25FF /* Level2.plist in Resources */,
 			);
@@ -271,15 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003AEE091B03F7A70070280D /* FinishedGameScene.swift in Sources */,
 				009CBD6B1AF5906300D1E750 /* GameScene.swift in Sources */,
 				009CBD6D1AF5906300D1E750 /* GameViewController.swift in Sources */,
 				002A68B91AFC277B00BD25FF /* GameState.swift in Sources */,
 				002A68B31AF9979700BD25FF /* GameObjectNode.swift in Sources */,
 				002A68C31AFE94EC00BD25FF /* LevelConfig.swift in Sources */,
 				002A68BB1AFE553500BD25FF /* EndGameScene.swift in Sources */,
-				002A68C91AFEC99E00BD25FF /* FinishedScene.swift in Sources */,
+				002A68C91AFEC99E00BD25FF /* LoseScene.swift in Sources */,
 				009CBD671AF5906300D1E750 /* AppDelegate.swift in Sources */,
-				005FD7F51B0161EC00FA8C54 /* FinishedGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,14 +310,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		009CBD6E1AF5906300D1E750 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				009CBD6F1AF5906300D1E750 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		009CBD731AF5906300D1E750 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

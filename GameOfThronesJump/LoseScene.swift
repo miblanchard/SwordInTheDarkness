@@ -7,11 +7,21 @@
 //
 
 import SpriteKit
+import AVFoundation
 
-class FinishedScene: SKScene {
+class LoseScene: SKScene {
+
+    var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func didMoveToView(view: SKView) {
+        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("castamere", withExtension: "mp3")!
+        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+        backgroundMusicPlayer.numberOfLoops = -1
+        backgroundMusicPlayer.play()
     }
 
     override init(size: CGSize) {
@@ -20,16 +30,16 @@ class FinishedScene: SKScene {
         backgroundColor = SKColor.redColor()
 
         let lblLevel = SKLabelNode(fontNamed: "Copperplate")
-        lblLevel.fontSize = 60
+        lblLevel.fontSize = 30
         lblLevel.fontColor = SKColor.whiteColor()
         lblLevel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         lblLevel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        lblLevel.text = String("You have beaten all of the levels!")
+        lblLevel.text = String("You fell to your death!")
         addChild(lblLevel)
 
         let lblHighScore = SKLabelNode(fontNamed: "Copperplate")
         lblHighScore.fontSize = 30
-        lblHighScore.fontColor = SKColor.magentaColor()
+        lblHighScore.fontColor = SKColor.blackColor()
         lblHighScore.position = CGPoint(x: self.size.width / 2, y: 150)
         lblHighScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblHighScore.text = String(format: "High Score: %d", GameState.sharedInstance.highScore)
@@ -45,6 +55,7 @@ class FinishedScene: SKScene {
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        backgroundMusicPlayer.stop()
         let reveal = SKTransition.fadeWithDuration(0.5)
         let gameScene = GameScene(size: self.size)
         self.view!.presentScene(gameScene, transition: reveal)

@@ -9,9 +9,11 @@
 import SpriteKit
 import CoreMotion
 import AVFoundation
+import UIKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
+    var viewController: UIViewController?
     var endLevelY = 0
     var backgroundNode: SKNode!
     var midgroundNode: SKNode!
@@ -26,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xAcceleration: CGFloat = 0.0
     var maxPlayerY: Int!
     var gameOver = false
+    var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
 
 
     override init(size: CGSize) {
@@ -50,9 +53,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hudNode = SKNode()
         addChild(hudNode)
 
+        
+        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
+        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+        backgroundMusicPlayer.numberOfLoops = -1
+        backgroundMusicPlayer.play()
+
+
+//        if GameState.sharedInstance.currentLevel > 3 {
+//            let reveal = SKTransition.fadeWithDuration(0.5)
+//            let finishedGameScene = FinishedGameScene(size: self.size)
+//            self.view!.presentScene(finishedGameScene, transition: reveal)
+//        } else {
         let currentLevel = GameState.sharedInstance.currentLevel
 
         setupLevel(currentLevel)
+     //   }
 
         player = createPlayer()
         foregroundNode.addChild(player)
@@ -264,7 +280,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.physicsBody?.dynamic = false
         node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Platform
         node.physicsBody?.collisionBitMask = 0
-        
+
         return node
     }
 
@@ -273,10 +289,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = true
 
         GameState.sharedInstance.saveState()
+        backgroundMusicPlayer.stop()
 
         let reveal = SKTransition.fadeWithDuration(0.5)
-        let endGameScene = EndGameScene(size: self.size)
-        self.view!.presentScene(endGameScene, transition: reveal)
+        let loseScene = LoseScene(size: self.size)
+        self.view!.presentScene(loseScene, transition: reveal)
     }
 
     func win() {
@@ -284,23 +301,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = true
 
         GameState.sharedInstance.saveState()
+        backgroundMusicPlayer.stop()
 
 
         if GameState.sharedInstance.currentLevel >= 3 {
+
+            //self.viewController!.performSegueWithIdentifier("finished", sender: self)
+
             let reveal = SKTransition.fadeWithDuration(0.5)
-            let finishedScene = FinishedScene(size: self.size)
-            self.view!.presentScene(finishedScene, transition: reveal)
+            let finishedGameScene = FinishedGameScene(size: self.size)
+            self.view!.presentScene(finishedGameScene, transition: reveal)
+
         } else {
 
-        GameState.sharedInstance.currentLevel += 1
-        let reveal = SKTransition.fadeWithDuration(0.5)
-        let endGameScene = EndGameScene(size: self.size)
-        self.view!.presentScene(endGameScene, transition: reveal)
+            GameState.sharedInstance.currentLevel += 1
+            let reveal = SKTransition.fadeWithDuration(0.5)
+            let endGameScene = EndGameScene(size: self.size)
+            self.view!.presentScene(endGameScene, transition: reveal)
 
         }
     }
 
+    func makeSnowParticles() {
+        if let myParticlePath = NSBundle.mainBundle().pathForResource("Snow", ofType: "sks") {
+            let snowParticles = NSKeyedUnarchiver.unarchiveObjectWithFile(myParticlePath) as! SKEmitterNode
+            snowParticles.position = CGPoint(x: self.size.width / 2, y: self.size.height)
+            addChild(snowParticles)
+        }
+    }
+
     func setupLevel(level: Int) {
+
+        makeSnowParticles()
 
         let levelData = LevelConfig.fetchLevel(level)
         endLevelY = levelData["EndY"]!.integerValue
@@ -346,6 +378,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 foregroundNode.addChild(starNode)
             }
         }
-
     }
 }

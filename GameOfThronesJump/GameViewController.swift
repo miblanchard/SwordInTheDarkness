@@ -12,6 +12,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,8 @@ class GameViewController: UIViewController {
 
         let scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFit
+
+        scene.viewController = self
         
         skView.presentScene(scene)
 

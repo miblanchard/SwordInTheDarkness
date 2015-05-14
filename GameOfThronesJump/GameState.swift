@@ -26,13 +26,14 @@ class GameState {
         score = 0
         highScore = 0
         stars = 0
-        currentLevel = 1
+        //currentLevel = 1
 
         let defaults = NSUserDefaults.standardUserDefaults()
 
         highScore = defaults.integerForKey("highScore")
         stars = defaults.integerForKey("stars")
-        currentLevel = defaults.integerForKey("currentLevel")
+        currentLevel = 3
+        //currentLevel = defaults.integerForKey("currentLevel")
     }
 
 

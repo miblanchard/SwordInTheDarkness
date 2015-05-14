@@ -7,8 +7,11 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class LevelConfig {
+
+    var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
 
     class func fetchLevel(currentLevel: Int) -> NSDictionary {
 
@@ -17,5 +20,16 @@ class LevelConfig {
         return levelData
         
     }
+
+    class func playThemeMusic() {
+
+        var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
+
+        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
+        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+        backgroundMusicPlayer.numberOfLoops = -1
+        backgroundMusicPlayer.play()
+    }
+
 }
 
