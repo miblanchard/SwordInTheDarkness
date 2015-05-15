@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>EndY</key>
-	<real>7500</real>
+	<real>7700</real>
 	<key>Stars</key>
 	<dict>
 		<key>Patterns</key>
@@ -461,7 +461,7 @@
 				<key>x</key>
 				<integer>160</integer>
 				<key>y</key>
-				<integer>240</integer>
+				<integer>200</integer>
 			</dict>
 			<dict>
 				<key>pattern</key>
@@ -662,7 +662,7 @@
 		<array>
 			<dict>
 				<key>pattern</key>
-				<string>Triple</string>
+				<string>Double</string>
 				<key>x</key>
 				<integer>60</integer>
 				<key>y</key>
@@ -696,7 +696,7 @@
 				<key>pattern</key>
 				<string>Double</string>
 				<key>x</key>
-				<integer>40</integer>
+				<integer>75</integer>
 				<key>y</key>
 				<integer>1800</integer>
 			</dict>
@@ -712,7 +712,7 @@
 				<key>pattern</key>
 				<string>Double</string>
 				<key>x</key>
-				<integer>40</integer>
+				<integer>60</integer>
 				<key>y</key>
 				<integer>1900</integer>
 			</dict>

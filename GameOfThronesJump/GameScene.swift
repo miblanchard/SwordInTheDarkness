@@ -29,7 +29,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var maxPlayerY: Int!
     var gameOver = false
     var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
+    var finishedGame = false
 
+//    override func didMoveToView(view: SKView) {
+//        if finishedGame == true{
+//            self.viewController!.performSegueWithIdentifier("menu", sender: self)
+//            finishedGame = false
+//        }
+//    }
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -54,21 +61,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(hudNode)
 
         
-        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
-        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
-        backgroundMusicPlayer.numberOfLoops = -1
-        backgroundMusicPlayer.play()
+//        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
+//        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+//        backgroundMusicPlayer.numberOfLoops = -1
+//        backgroundMusicPlayer.play()
 
-
-//        if GameState.sharedInstance.currentLevel > 3 {
-//            let reveal = SKTransition.fadeWithDuration(0.5)
-//            let finishedGameScene = FinishedGameScene(size: self.size)
-//            self.view!.presentScene(finishedGameScene, transition: reveal)
-//        } else {
         let currentLevel = GameState.sharedInstance.currentLevel
 
         setupLevel(currentLevel)
-     //   }
 
         player = createPlayer()
         foregroundNode.addChild(player)
@@ -289,7 +289,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = true
 
         GameState.sharedInstance.saveState()
-        backgroundMusicPlayer.stop()
+        //backgroundMusicPlayer.stop()
 
         let reveal = SKTransition.fadeWithDuration(0.5)
         let loseScene = LoseScene(size: self.size)
@@ -301,13 +301,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOver = true
 
         GameState.sharedInstance.saveState()
-        backgroundMusicPlayer.stop()
+       // backgroundMusicPlayer.stop()
 
 
         if GameState.sharedInstance.currentLevel >= 3 {
 
-            //self.viewController!.performSegueWithIdentifier("finished", sender: self)
-
+            finishedGame = true
             let reveal = SKTransition.fadeWithDuration(0.5)
             let finishedGameScene = FinishedGameScene(size: self.size)
             self.view!.presentScene(finishedGameScene, transition: reveal)

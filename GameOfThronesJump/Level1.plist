@@ -654,7 +654,7 @@
 		<array>
 			<dict>
 				<key>pattern</key>
-				<string>Triple</string>
+				<string>Single</string>
 				<key>x</key>
 				<integer>60</integer>
 				<key>y</key>

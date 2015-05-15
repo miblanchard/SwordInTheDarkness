@@ -21,15 +21,5 @@ class LevelConfig {
         
     }
 
-    class func playThemeMusic() {
-
-        var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
-
-        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
-        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
-        backgroundMusicPlayer.numberOfLoops = -1
-        backgroundMusicPlayer.play()
-    }
-
 }
 

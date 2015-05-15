@@ -1,54 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2tv-n4-qFc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="Hu5-nQ-Qhp">
-            <objects>
-                <viewController id="2tv-n4-qFc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Aj-FZ-Mdy"/>
-                        <viewControllerLayoutGuide type="bottom" id="31Z-Il-v46"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DSL-tL-jwY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="DyT-xC-WUa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-8K-O9i">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="156"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="68"/>
-                                <state key="normal" title="START">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" id="bzN-YO-kng"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="EEf-8K-O9i" secondAttribute="trailing" constant="-16" id="CGA-GW-NVP"/>
-                            <constraint firstItem="DyT-xC-WUa" firstAttribute="top" secondItem="DSL-tL-jwY" secondAttribute="top" id="Ko5-mf-fRZ"/>
-                            <constraint firstItem="31Z-Il-v46" firstAttribute="top" secondItem="DyT-xC-WUa" secondAttribute="bottom" id="MKw-VU-uu1"/>
-                            <constraint firstItem="EEf-8K-O9i" firstAttribute="leading" secondItem="DSL-tL-jwY" secondAttribute="leadingMargin" constant="-16" id="QEl-Ye-g6c"/>
-                            <constraint firstItem="DyT-xC-WUa" firstAttribute="leading" secondItem="DSL-tL-jwY" secondAttribute="leading" id="Ulf-eb-s1L"/>
-                            <constraint firstItem="31Z-Il-v46" firstAttribute="top" secondItem="EEf-8K-O9i" secondAttribute="bottom" constant="444" id="in8-3c-lqY"/>
-                            <constraint firstAttribute="trailing" secondItem="DyT-xC-WUa" secondAttribute="trailing" id="lR9-J5-FVz"/>
-                            <constraint firstItem="EEf-8K-O9i" firstAttribute="top" secondItem="DSL-tL-jwY" secondAttribute="topMargin" id="uPq-jJ-gbd"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OXU-XM-NxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-380" y="387"/>
-        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -68,7 +23,4 @@
             <point key="canvasLocation" x="304" y="387"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="main" width="700" height="990"/>
-    </resources>
 </document>

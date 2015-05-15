@@ -17,7 +17,7 @@ class EndGameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
 
-        backgroundColor = SKColor.blackColor()
+        backgroundColor = SKColor.grayColor()
 
         let star = SKSpriteNode(imageNamed: "GameOfThronesJumpGraphics/Assets.atlas/Star")
         star.position = CGPoint(x: 25, y: self.size.height-30)
@@ -33,7 +33,7 @@ class EndGameScene: SKScene {
 
         let lblSuccess = SKLabelNode(fontNamed: "Copperplate")
         lblSuccess.fontSize = 45
-        lblSuccess.fontColor = SKColor.grayColor()
+        lblSuccess.fontColor = SKColor.blackColor()
         lblSuccess.position = CGPoint(x: self.size.width / 2, y: 500)
         lblSuccess.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
         lblSuccess.text = String(format: "You beat Level %d", (GameState.sharedInstance.currentLevel - 1))

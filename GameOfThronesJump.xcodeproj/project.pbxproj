@@ -20,6 +20,7 @@
 		002A68CD1B01576A00BD25FF /* main.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 002A68CC1B01576A00BD25FF /* main.jpg */; };
 		003AEE071B03E5D40070280D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003AEE061B03E5D40070280D /* Main.storyboard */; };
 		003AEE091B03F7A70070280D /* FinishedGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AEE081B03F7A70070280D /* FinishedGameScene.swift */; };
+		003AEE0D1B0545E70070280D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AEE0C1B0545E70070280D /* MenuScene.swift */; };
 		005FD7F31B015F5B00FA8C54 /* Level3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F21B015F5B00FA8C54 /* Level3.plist */; };
 		005FD7F71B01641500FA8C54 /* castamere.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F61B01641500FA8C54 /* castamere.mp3 */; };
 		005FD7FA1B02D5E500FA8C54 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 005FD7F81B02D5E500FA8C54 /* Snow.sks */; };
@@ -56,11 +57,12 @@
 		002A68CC1B01576A00BD25FF /* main.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main.jpg; sourceTree = "<group>"; };
 		003AEE061B03E5D40070280D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		003AEE081B03F7A70070280D /* FinishedGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedGameScene.swift; sourceTree = "<group>"; };
+		003AEE0C1B0545E70070280D /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		005FD7F21B015F5B00FA8C54 /* Level3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level3.plist; sourceTree = "<group>"; };
 		005FD7F61B01641500FA8C54 /* castamere.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = castamere.mp3; sourceTree = "<group>"; };
 		005FD7F81B02D5E500FA8C54 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		005FD7F91B02D5E500FA8C54 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		009CBD611AF5906300D1E750 /* GameOfThronesJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfThronesJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		009CBD611AF5906300D1E750 /* Sword In the Darkness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sword In the Darkness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CBD651AF5906300D1E750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009CBD661AF5906300D1E750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		009CBD6A1AF5906300D1E750 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		009CBD621AF5906300D1E750 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				009CBD611AF5906300D1E750 /* GameOfThronesJump.app */,
+				009CBD611AF5906300D1E750 /* Sword In the Darkness.app */,
 				009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */,
 			);
 			name = Products;
@@ -114,13 +116,14 @@
 				009CBD661AF5906300D1E750 /* AppDelegate.swift */,
 				002A68BA1AFE553500BD25FF /* EndGameScene.swift */,
 				003AEE081B03F7A70070280D /* FinishedGameScene.swift */,
-				002A68C81AFEC99E00BD25FF /* LoseScene.swift */,
 				002A68B21AF9979700BD25FF /* GameObjectNode.swift */,
 				009CBD6A1AF5906300D1E750 /* GameScene.swift */,
 				002A68B81AFC277B00BD25FF /* GameState.swift */,
 				009CBD6C1AF5906300D1E750 /* GameViewController.swift */,
-				003AEE061B03E5D40070280D /* Main.storyboard */,
 				002A68C21AFE94EC00BD25FF /* LevelConfig.swift */,
+				002A68C81AFEC99E00BD25FF /* LoseScene.swift */,
+				003AEE0C1B0545E70070280D /* MenuScene.swift */,
+				003AEE061B03E5D40070280D /* Main.storyboard */,
 				009CBD711AF5906300D1E750 /* Images.xcassets */,
 				009CBD731AF5906300D1E750 /* LaunchScreen.xib */,
 				009CBD641AF5906300D1E750 /* Supporting Files */,
@@ -180,7 +183,7 @@
 			);
 			name = GameOfThronesJump;
 			productName = GameOfThronesJump;
-			productReference = 009CBD611AF5906300D1E750 /* GameOfThronesJump.app */;
+			productReference = 009CBD611AF5906300D1E750 /* Sword In the Darkness.app */;
 			productType = "com.apple.product-type.application";
 		};
 		009CBD791AF5906300D1E750 /* GameOfThronesJumpTests */ = {
@@ -286,6 +289,7 @@
 				002A68B31AF9979700BD25FF /* GameObjectNode.swift in Sources */,
 				002A68C31AFE94EC00BD25FF /* LevelConfig.swift in Sources */,
 				002A68BB1AFE553500BD25FF /* EndGameScene.swift in Sources */,
+				003AEE0D1B0545E70070280D /* MenuScene.swift in Sources */,
 				002A68C91AFEC99E00BD25FF /* LoseScene.swift in Sources */,
 				009CBD671AF5906300D1E750 /* AppDelegate.swift in Sources */,
 			);
@@ -412,7 +416,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = GameOfThronesJump;
+				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -425,7 +429,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = GameOfThronesJump;
+				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

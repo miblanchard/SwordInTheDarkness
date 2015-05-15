@@ -32,7 +32,7 @@ class GameState {
 
         highScore = defaults.integerForKey("highScore")
         stars = defaults.integerForKey("stars")
-        currentLevel = 3
+        currentLevel = 1
         //currentLevel = defaults.integerForKey("currentLevel")
     }
 
