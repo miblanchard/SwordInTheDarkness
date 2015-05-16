@@ -31,6 +31,8 @@
 		009CBD721AF5906300D1E750 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD711AF5906300D1E750 /* Images.xcassets */; };
 		009CBD751AF5906300D1E750 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD731AF5906300D1E750 /* LaunchScreen.xib */; };
 		009CBD811AF5906300D1E750 /* GameOfThronesJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */; };
+		00D7BBE41B07BCFB00C440DB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D7BBE21B07BCFB00C440DB /* Fabric.framework */; };
+		00D7BBE51B07BCFB00C440DB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfThronesJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CBD7F1AF5906300D1E750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfThronesJumpTests.swift; sourceTree = "<group>"; };
+		00D7BBE21B07BCFB00C440DB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D7BBE51B07BCFB00C440DB /* Crashlytics.framework in Frameworks */,
+				00D7BBE41B07BCFB00C440DB /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,8 @@
 		009CBD641AF5906300D1E750 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00D7BBE21B07BCFB00C440DB /* Fabric.framework */,
+				00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */,
 				002A68B41AFAC8D200BD25FF /* StarPing.wav */,
 				002A68C61AFEBF3000BD25FF /* song.mp3 */,
 				005FD7F61B01641500FA8C54 /* castamere.mp3 */,
@@ -176,6 +184,7 @@
 				009CBD5D1AF5906300D1E750 /* Sources */,
 				009CBD5E1AF5906300D1E750 /* Frameworks */,
 				009CBD5F1AF5906300D1E750 /* Resources */,
+				00D7BBE11B07BCD500C440DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -276,6 +285,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00D7BBE11B07BCD500C440DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d4d48063bc110fb8d3c84020b1967e0f0295771b bdfa4cb839868ce30f05f1f4b1250808f012d6e7a97ca778202719206cd18658";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		009CBD5D1AF5906300D1E750 /* Sources */ = {
@@ -414,6 +439,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GameOfThronesJump",
+				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sword In the Darkness";
@@ -427,6 +456,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GameOfThronesJump",
+				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sword In the Darkness";

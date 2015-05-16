@@ -12,17 +12,17 @@ import AVFoundation
 
 class GameViewController: UIViewController {
 
-    var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
+   // var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
     var backgroundMusicIsPlaying = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
-        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
-        backgroundMusicPlayer.numberOfLoops = -1
-        backgroundMusicPlayer.prepareToPlay()
-        backgroundMusicPlayer.play()
+//        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
+//        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+        GameState.sharedInstance.backgroundMusicPlayer.numberOfLoops = -1
+        GameState.sharedInstance.backgroundMusicPlayer.prepareToPlay()
+        GameState.sharedInstance.backgroundMusicPlayer.play()
 
         let skView = self.view as! SKView
 

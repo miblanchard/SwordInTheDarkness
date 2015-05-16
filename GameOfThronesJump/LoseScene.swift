@@ -11,24 +11,18 @@ import AVFoundation
 
 class LoseScene: SKScene {
 
-    //var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func didMoveToView(view: SKView) {
-//        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("castamere", withExtension: "mp3")!
-//        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
-//        backgroundMusicPlayer.numberOfLoops = -1
-//        backgroundMusicPlayer.prepareToPlay()
-//        backgroundMusicPlayer.play()
     }
 
     override init(size: CGSize) {
         super.init(size: size)
 
         backgroundColor = SKColor.redColor()
+
+        GameState.sharedInstance.loseSceneMusicPlayer.numberOfLoops = -1
+        GameState.sharedInstance.loseSceneMusicPlayer.prepareToPlay()
+        GameState.sharedInstance.loseSceneMusicPlayer.play()
 
         let lblLevel = SKLabelNode(fontNamed: "Copperplate")
         lblLevel.fontSize = 30
@@ -56,7 +50,10 @@ class LoseScene: SKScene {
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    //    backgroundMusicPlayer.stop()
+        GameState.sharedInstance.loseSceneMusicPlayer.stop()
+        GameState.sharedInstance.backgroundMusicPlayer.numberOfLoops = -1
+        GameState.sharedInstance.backgroundMusicPlayer.prepareToPlay()
+        GameState.sharedInstance.backgroundMusicPlayer.play()
         let reveal = SKTransition.fadeWithDuration(0.5)
         let gameScene = GameScene(size: self.size)
         self.view!.presentScene(gameScene, transition: reveal)

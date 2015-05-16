@@ -6,13 +6,15 @@
 //  Copyright (c) 2015 Michael Blanchard. All rights reserved.
 //
 
-import Foundation
+import AVFoundation
 
 class GameState {
     var score: Int
     var highScore: Int
     var stars: Int
     var currentLevel: Int
+    var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
+    var loseSceneMusicPlayer: AVAudioPlayer = AVAudioPlayer()
 
     class var sharedInstance: GameState {
         struct Singleton {
@@ -29,6 +31,14 @@ class GameState {
         //currentLevel = 1
 
         let defaults = NSUserDefaults.standardUserDefaults()
+
+        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
+        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+
+        var loseMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("castamere", withExtension: "mp3")!
+        loseSceneMusicPlayer = AVAudioPlayer(contentsOfURL: loseMusicUrl, error: nil)
+
+
 
         highScore = defaults.integerForKey("highScore")
         stars = defaults.integerForKey("stars")
