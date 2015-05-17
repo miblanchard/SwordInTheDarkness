@@ -143,11 +143,11 @@
 			isa = PBXGroup;
 			children = (
 				00D7BBE21B07BCFB00C440DB /* Fabric.framework */,
+				002A68CC1B01576A00BD25FF /* main.jpg */,
 				00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */,
 				002A68B41AFAC8D200BD25FF /* StarPing.wav */,
 				002A68C61AFEBF3000BD25FF /* song.mp3 */,
 				005FD7F61B01641500FA8C54 /* castamere.mp3 */,
-				002A68CC1B01576A00BD25FF /* main.jpg */,
 				002A68B01AF9898500BD25FF /* GameOfThronesJumpGraphics */,
 				009CBD651AF5906300D1E750 /* Info.plist */,
 				005FD7F21B015F5B00FA8C54 /* Level3.plist */,
@@ -298,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run d4d48063bc110fb8d3c84020b1967e0f0295771b bdfa4cb839868ce30f05f1f4b1250808f012d6e7a97ca778202719206cd18658";
+			shellScript = "./Fabric.framework/run d4d48063bc110fb8d3c84020b1967e0f0295771b bdfa4cb839868ce30f05f1f4b1250808f012d6e7a97ca778202719206cd18658 ";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -444,6 +444,7 @@
 					"$(PROJECT_DIR)/GameOfThronesJump",
 				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
@@ -461,6 +462,7 @@
 					"$(PROJECT_DIR)/GameOfThronesJump",
 				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
