@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,20 +30,7 @@
 		009CBD6D1AF5906300D1E750 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD6C1AF5906300D1E750 /* GameViewController.swift */; };
 		009CBD721AF5906300D1E750 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD711AF5906300D1E750 /* Images.xcassets */; };
 		009CBD751AF5906300D1E750 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009CBD731AF5906300D1E750 /* LaunchScreen.xib */; };
-		009CBD811AF5906300D1E750 /* GameOfThronesJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */; };
-		00D7BBE41B07BCFB00C440DB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D7BBE21B07BCFB00C440DB /* Fabric.framework */; };
-		00D7BBE51B07BCFB00C440DB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		009CBD7B1AF5906300D1E750 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 009CBD591AF5906300D1E750 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 009CBD601AF5906300D1E750;
-			remoteInfo = GameOfThronesJump;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		002A68B01AF9898500BD25FF /* GameOfThronesJumpGraphics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GameOfThronesJumpGraphics; sourceTree = SOURCE_ROOT; };
@@ -71,24 +58,12 @@
 		009CBD6C1AF5906300D1E750 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		009CBD711AF5906300D1E750 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		009CBD741AF5906300D1E750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfThronesJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		009CBD7F1AF5906300D1E750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfThronesJumpTests.swift; sourceTree = "<group>"; };
 		00D7BBE21B07BCFB00C440DB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		00D7BBE31B07BCFB00C440DB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		009CBD5E1AF5906300D1E750 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				00D7BBE51B07BCFB00C440DB /* Crashlytics.framework in Frameworks */,
-				00D7BBE41B07BCFB00C440DB /* Fabric.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		009CBD771AF5906300D1E750 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -102,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				009CBD631AF5906300D1E750 /* GameOfThronesJump */,
-				009CBD7D1AF5906300D1E750 /* GameOfThronesJumpTests */,
 				009CBD621AF5906300D1E750 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				009CBD611AF5906300D1E750 /* Sword In the Darkness.app */,
-				009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,23 +130,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		009CBD7D1AF5906300D1E750 /* GameOfThronesJumpTests */ = {
-			isa = PBXGroup;
-			children = (
-				009CBD801AF5906300D1E750 /* GameOfThronesJumpTests.swift */,
-				009CBD7E1AF5906300D1E750 /* Supporting Files */,
-			);
-			path = GameOfThronesJumpTests;
-			sourceTree = "<group>";
-		};
-		009CBD7E1AF5906300D1E750 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				009CBD7F1AF5906300D1E750 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,24 +151,6 @@
 			productReference = 009CBD611AF5906300D1E750 /* Sword In the Darkness.app */;
 			productType = "com.apple.product-type.application";
 		};
-		009CBD791AF5906300D1E750 /* GameOfThronesJumpTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 009CBD871AF5906300D1E750 /* Build configuration list for PBXNativeTarget "GameOfThronesJumpTests" */;
-			buildPhases = (
-				009CBD761AF5906300D1E750 /* Sources */,
-				009CBD771AF5906300D1E750 /* Frameworks */,
-				009CBD781AF5906300D1E750 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				009CBD7C1AF5906300D1E750 /* PBXTargetDependency */,
-			);
-			name = GameOfThronesJumpTests;
-			productName = GameOfThronesJumpTests;
-			productReference = 009CBD7A1AF5906300D1E750 /* GameOfThronesJumpTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,24 +162,20 @@
 				TargetAttributes = {
 					009CBD601AF5906300D1E750 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 48KMRC6ENX;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
 						};
 					};
-					009CBD791AF5906300D1E750 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 009CBD601AF5906300D1E750;
-					};
 				};
 			};
 			buildConfigurationList = 009CBD5C1AF5906300D1E750 /* Build configuration list for PBXProject "GameOfThronesJump" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -251,7 +185,6 @@
 			projectRoot = "";
 			targets = (
 				009CBD601AF5906300D1E750 /* GameOfThronesJump */,
-				009CBD791AF5906300D1E750 /* GameOfThronesJumpTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,13 +207,6 @@
 				002A68C71AFEBF3000BD25FF /* song.mp3 in Resources */,
 				005FD7F71B01641500FA8C54 /* castamere.mp3 in Resources */,
 				002A68BF1AFE8AFF00BD25FF /* Level2.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		009CBD781AF5906300D1E750 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,23 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		009CBD761AF5906300D1E750 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				009CBD811AF5906300D1E750 /* GameOfThronesJumpTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		009CBD7C1AF5906300D1E750 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 009CBD601AF5906300D1E750 /* GameOfThronesJump */;
-			targetProxy = 009CBD7B1AF5906300D1E750 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		009CBD731AF5906300D1E750 /* LaunchScreen.xib */ = {
@@ -386,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -425,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,15 +349,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A23726ZBUJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GameOfThronesJump",
 				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.michael.GameOfThronesJump;
 				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -457,49 +374,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A23726ZBUJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GameOfThronesJump",
 				);
 				INFOPLIST_FILE = GameOfThronesJump/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.michael.GameOfThronesJump;
 				PRODUCT_NAME = "Sword In the Darkness";
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		009CBD881AF5906300D1E750 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = GameOfThronesJumpTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = GameOfThronesJumpTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameOfThronesJump.app/GameOfThronesJump";
-			};
-			name = Debug;
-		};
-		009CBD891AF5906300D1E750 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = GameOfThronesJumpTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = GameOfThronesJumpTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameOfThronesJump.app/GameOfThronesJump";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -520,15 +410,6 @@
 			buildConfigurations = (
 				009CBD851AF5906300D1E750 /* Debug */,
 				009CBD861AF5906300D1E750 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		009CBD871AF5906300D1E750 /* Build configuration list for PBXNativeTarget "GameOfThronesJumpTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				009CBD881AF5906300D1E750 /* Debug */,
-				009CBD891AF5906300D1E750 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

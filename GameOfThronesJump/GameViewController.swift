@@ -30,21 +30,21 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = false
 
         let scene = MenuScene(size: skView.bounds.size)
-        scene.scaleMode = .AspectFit
+        scene.scaleMode = .aspectFit
         
         skView.presentScene(scene)
 
     }
 
-    override func shouldAutorotate() -> Bool {
+    func shouldAutorotate() -> Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return .all
         }
     }
 
@@ -53,7 +53,7 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    func prefersStatusBarHidden() -> Bool {
         return true
     }
 }
