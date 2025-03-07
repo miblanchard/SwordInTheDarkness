@@ -30,31 +30,35 @@ class GameState {
         stars = 0
         //currentLevel = 1
 
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
 
-        var bgMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("song", withExtension: "mp3")!
-        backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: bgMusicUrl, error: nil)
+        do {
+            if let bgMusicUrl = Bundle.main.url(forResource: "song", withExtension: "mp3") {
+                backgroundMusicPlayer = try AVAudioPlayer(contentsOf: bgMusicUrl)
+            }
+            
+            if let loseMusicUrl = Bundle.main.url(forResource: "castamere", withExtension: "mp3") {
+                loseSceneMusicPlayer = try AVAudioPlayer(contentsOf: loseMusicUrl)
+            }
+        } catch {
+            print("Error loading audio files: \(error)")
+        }
 
-        var loseMusicUrl:NSURL = NSBundle.mainBundle().URLForResource("castamere", withExtension: "mp3")!
-        loseSceneMusicPlayer = AVAudioPlayer(contentsOfURL: loseMusicUrl, error: nil)
-
-
-
-        highScore = defaults.integerForKey("highScore")
-        stars = defaults.integerForKey("stars")
+        highScore = defaults.integer(forKey: "highScore")
+        stars = defaults.integer(forKey: "stars")
         currentLevel = 1
-        //currentLevel = defaults.integerForKey("currentLevel")
+        //currentLevel = defaults.integer(forKey: "currentLevel")
     }
 
 
     func saveState() {
         highScore = max(score, highScore)
 
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(highScore, forKey: "highScore")
-        defaults.setInteger(stars, forKey: "stars")
-        defaults.setInteger(currentLevel, forKey: "currentLevel")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        let defaults = UserDefaults.standard
+        defaults.set(highScore, forKey: "highScore")
+        defaults.set(stars, forKey: "stars")
+        defaults.set(currentLevel, forKey: "currentLevel")
+        UserDefaults.standard.synchronize()
     }
 
 }

@@ -16,18 +16,18 @@ struct CollisionCategoryBitmask {
 }
 
 enum StarType: Int {
-    case Normal = 0
-    case Special
+    case normal = 0
+    case special
 }
 
 enum PlatformType: Int {
-    case Normal = 0
-    case Break
+    case normal = 0
+    case break
 }
 
 class GameObjectNode: SKNode {
 
-    func collisionWithPlayer(player: SKNode) -> Bool {
+    func collisionWithPlayer(_ player: SKNode) -> Bool {
         return false
     }
 
@@ -42,7 +42,7 @@ class StarNode: GameObjectNode {
     var starType: StarType?
     let starSound = SKAction.playSoundFileNamed("StarPing.wav", waitForCompletion: false)
 
-    override func collisionWithPlayer(player: SKNode) -> Bool {
+    override func collisionWithPlayer(_ player: SKNode) -> Bool {
 
         player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 400.0)
 
@@ -50,9 +50,9 @@ class StarNode: GameObjectNode {
             self.removeFromParent()
         })
 
-        GameState.sharedInstance.score += (starType == .Normal ? 20 : 100)
+        GameState.sharedInstance.score += (starType == .normal ? 20 : 100)
 
-        GameState.sharedInstance.stars += (starType == .Normal ? 1 : 5)
+        GameState.sharedInstance.stars += (starType == .normal ? 1 : 5)
 
         return true
     }
@@ -61,15 +61,15 @@ class StarNode: GameObjectNode {
 class PlatformNode: GameObjectNode {
     var platformType: PlatformType!
 
-    override func collisionWithPlayer(player: SKNode) -> Bool {
-        if (player.physicsBody?.velocity.dy)! < 0 {
+    override func collisionWithPlayer(_ player: SKNode) -> Bool {
+        if player.physicsBody?.velocity.dy < 0 {
             player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 350.0)
 
-            if platformType == .Break {
+            if platformType == .break {
                 self.removeFromParent()
             }
         }
         
         return false
     }
-}
+} 

@@ -13,12 +13,12 @@ class LevelConfig {
 
     var backgroundMusicPlayer: AVAudioPlayer = AVAudioPlayer()
 
-    class func fetchLevel(currentLevel: Int) -> NSDictionary {
-
-        let levelPlist = NSBundle.self.mainBundle().pathForResource("Level\(currentLevel)", ofType: "plist")
-        let levelData = NSDictionary(contentsOfFile: levelPlist!)!
-        return levelData
-        
+    class func fetchLevel(_ currentLevel: Int) -> [String: Any] {
+        if let levelPlist = Bundle.main.path(forResource: "Level\(currentLevel)", ofType: "plist"),
+           let levelData = NSDictionary(contentsOfFile: levelPlist) as? [String: Any] {
+            return levelData
+        }
+        return [:]
     }
 
 }

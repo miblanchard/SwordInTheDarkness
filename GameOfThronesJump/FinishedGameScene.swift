@@ -29,7 +29,7 @@ class FinishedGameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
 
-        backgroundColor = SKColor.blackColor()
+        backgroundColor = SKColor.black
 
        // node.position = CGPointMake(self.size.width/2, self.size.height/2)
        // node.size = size
@@ -38,34 +38,34 @@ class FinishedGameScene: SKScene {
 
         let lblSuccess = SKLabelNode(fontNamed: "Copperplate")
         lblSuccess.fontSize = 30
-        lblSuccess.fontColor = SKColor.grayColor()
+        lblSuccess.fontColor = SKColor.gray
         lblSuccess.position = CGPoint(x: self.size.width / 2, y: 500)
-        lblSuccess.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblSuccess.horizontalAlignmentMode = .center
         lblSuccess.text = String("The Night is Dark")
         addChild(lblSuccess)
 
         let lblLine2 = SKLabelNode(fontNamed: "Copperplate")
         lblLine2.fontSize = 30
-        lblLine2.fontColor = SKColor.grayColor()
+        lblLine2.fontColor = SKColor.gray
         lblLine2.position = CGPoint(x: self.size.width / 2, y: 400)
-        lblLine2.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblLine2.horizontalAlignmentMode = .center
         lblLine2.text = String("And Full of Terrors")
         addChild(lblLine2)
 
         let lblRestart = SKLabelNode(fontNamed: "Copperplate")
         lblRestart.fontSize = 30
-        lblRestart.fontColor = SKColor.grayColor()
+        lblRestart.fontColor = SKColor.gray
         lblRestart.position = CGPoint(x: self.size.width / 2, y: 150)
-        lblRestart.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
+        lblRestart.horizontalAlignmentMode = .center
         lblRestart.text = String("Tap to Restart Game")
         addChild(lblRestart)
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
       //  backgroundMusicPlayer.stop()
 
         GameState.sharedInstance.currentLevel = 1
-        let reveal = SKTransition.fadeWithDuration(0.5)
+        let reveal = SKTransition.fade(withDuration: 0.5)
         let menuScene = MenuScene(size: self.size)
         self.view!.presentScene(menuScene, transition: reveal)
       //  self.viewController!.performSegueWithIdentifier("menu", sender: self)
